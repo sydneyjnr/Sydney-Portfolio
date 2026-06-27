@@ -1,0 +1,49 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.btn--primary {
+  background: var(--gold-rich);
+  color: var(--bg-primary);
+  border: 1px solid var(--gold-rich);
+}
+
+.btn--primary:hover {
+  background: var(--gold-soft);
+  border-color: var(--gold-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.25);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--gold-soft);
+  border: 1px solid var(--border-gold);
+}
+
+.btn--outline:hover {
+  background: rgba(212, 175, 55, 0.08);
+  border-color: var(--gold-rich);
+  color: var(--gold-rich);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
