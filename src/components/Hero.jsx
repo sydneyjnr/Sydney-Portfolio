@@ -109,7 +109,7 @@ export default function Hero() {
             I build responsive, user-focused web applications with modern
             frontend technologies while exploring the power of data to uncover
             insights and solve real-world problems. Passionate about clean code,
-            intuitive user experiences, and continuous learning..
+            intuitive user experiences, and continuous learning...
           </p>
           <div className="hero__actions">
             <button
