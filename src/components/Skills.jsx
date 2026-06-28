@@ -1,8 +1,12 @@
 const SKILLS = [
-  { category: 'Frontend', items: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'HTML/CSS'] },
-  { category: 'Backend', items: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'REST APIs'] },
-  { category: 'Tools', items: ['Git', 'VS Code', 'Docker', 'Figma', 'Linux'] },
-  { category: 'Other', items: ['System Design', 'Agile', 'Testing', 'CI/CD', 'Performance'] },
+  {
+    category: "Frontend",
+    items: ["React", "JavaScript", "Next.js", "Tailwind CSS", "HTML/CSS"],
+  },
+  {
+    category: "Data Science",
+    items: ["Python", "Pandas", "Polars", "Plotly", "Lets-Plot", "Marimo"],
+  },
 ];
 
 export default function Skills() {
@@ -25,7 +29,9 @@ export default function Skills() {
             <h3 className="skill-card__title">{group.category}</h3>
             <ul className="skill-card__list">
               {group.items.map((skill) => (
-                <li key={skill} className="skill-card__item">{skill}</li>
+                <li key={skill} className="skill-card__item">
+                  {skill}
+                </li>
               ))}
             </ul>
           </div>
