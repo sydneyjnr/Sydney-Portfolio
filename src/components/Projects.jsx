@@ -1,21 +1,21 @@
 const PROJECTS = [
   {
-    title: 'Project Alpha',
-    description: 'A full-stack application built with React and Node.js featuring real-time data processing and interactive dashboards.',
-    tags: ['React', 'Node.js', 'PostgreSQL'],
-    links: { github: '#', live: '#' },
+    title: 'Blacc Farms',
+    description: 'Collaborated with Meshack Amadi on Blacc Farms, contributing to its responsive web development and user experience.',
+    tags: ['React', 'Tailwind CSS'],
+    links: { github: '#', live: 'https://meshackamadi.github.io/blacc-farms/' },
   },
   {
-    title: 'Platform Core',
-    description: 'Enterprise-grade platform architecture with microservices, caching layers, and comprehensive monitoring.',
-    tags: ['TypeScript', 'Docker', 'Redis'],
-    links: { github: '#', live: '#' },
+    title: 'US Housing permit analysis (1980–2010)',
+    description: 'Explored U.S. housing trends from 1980–2010 through county-level and state-level visualizations, analyzing the housing boom, 2009 collapse, and early recovery, with a deep dive into Texas.',
+    tags: ['Python', 'Polar', 'Lets-Plot', 'Marimo'],
+    links: { github: '#', live: '/projects/case_study_10.html' },
   },
   {
-    title: 'Design System',
-    description: 'Component library and design tokens for consistent UI across multiple applications with accessibility built-in.',
-    tags: ['React', 'Storybook', 'CSS'],
-    links: { github: '#', live: '#' },
+    title: 'Mapping the Global Spread of Afrobeat Artists Using Spotify Charts from 2023-2025',
+    description: 'Discovering how Afrobeat music spread across different countries based on Spotify chart performance',
+    tags: ['Python', 'Polar', 'Lets-Plot', 'Folium'],
+    links: { github: '#', live: '/projects/final_project.html' },
   },
 ];
 

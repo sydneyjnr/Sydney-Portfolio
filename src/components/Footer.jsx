@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="footer__divider" />
         <div className="footer__content">
           <p className="footer__copyright">
-            &copy; {year} Sydney. Built with React
+            &copy; {year} Sydney
           </p>
           <p className="footer__tagline">
             &lt;designed &amp; developed with precision /&gt;
