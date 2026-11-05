@@ -24,16 +24,16 @@
     linear-gradient(var(--border-gold) 1px, transparent 1px),
     linear-gradient(90deg, var(--border-gold) 1px, transparent 1px);
   background-size: var(--grid-cell) var(--grid-cell);
-  /* --border-gold is gold at 30%, so this gives lines of about 15% gold. */
-  opacity: 0.5;
+  /* --border-gold is gold at 30%, so this gives lines of about 10% gold. */
+  opacity: 0.35;
 }
 
 @media (max-width: 768px) {
   /* The text fills the phone hero, so the lines thin out before they reach it. */
   .grid-bg {
     --grid-cell: 40px;
-    -webkit-mask-image: linear-gradient(to bottom, #000 10%, transparent 62%);
-    mask-image: linear-gradient(to bottom, #000 10%, transparent 62%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 10%, transparent 70%);
+    mask-image: linear-gradient(to bottom, #000 10%, transparent 70%);
   }
 }
 

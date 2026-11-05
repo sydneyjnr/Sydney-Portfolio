@@ -1,10 +1,10 @@
 .hero {
   position: relative;
   display: flex;
-  align-items: flex-end;
-  min-height: 100vh;
-  min-height: 100svh;
-  padding-block: 9rem var(--space-16);
+  align-items: center;
+  min-height: min(100vh, 48rem);
+  min-height: min(100svh, 48rem);
+  padding-block: 7rem var(--space-16);
   padding-inline: var(--page-inset);
 }
 
@@ -12,34 +12,32 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(13.75rem, 25vw, 22rem);
-  column-gap: clamp(var(--space-8), 5vw, var(--space-24));
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--space-16);
+  align-items: center;
   width: 100%;
-  animation: heroFadeIn 500ms var(--ease) both;
+  animation: heroFadeIn 450ms var(--ease) both;
 }
 
 @keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .hero__greeting {
   font-family: var(--font-mono);
   font-size: var(--step-label);
-  color: var(--gold-soft);
+  color: var(--text-muted);
   margin-bottom: var(--space-4);
 }
 
 .hero__name {
   font-size: var(--step-hero);
   font-weight: var(--weight-display);
-  line-height: 0.92;
+  line-height: 1;
   letter-spacing: var(--tracking-display);
   color: var(--text-primary);
-  /* Optical alignment: pulls the capital I onto the left edge of the text below. */
-  margin-left: -0.04em;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
 }
 
 .hero__name-highlight {
@@ -48,9 +46,9 @@
 
 .hero__title {
   font-size: var(--step-lead);
-  line-height: 1.35;
+  line-height: 1.4;
   color: var(--text-primary);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
 }
 
 /* Each part stays whole, so a long title can only wrap at the divider. */
@@ -59,13 +57,13 @@
 }
 
 .hero__title-divider {
-  color: var(--gold-soft);
+  color: var(--text-muted);
 }
 
 .hero__description {
   color: var(--text-secondary);
   line-height: 1.7;
-  max-width: 38em;
+  max-width: 35em;
   margin-bottom: var(--space-8);
   text-wrap: pretty;
 }
@@ -77,49 +75,43 @@
 }
 
 .hero__photo {
-  width: 100%;
-  aspect-ratio: 4 / 5;
+  width: clamp(12rem, 20vw, 17.5rem);
+  aspect-ratio: 1;
   object-fit: cover;
-  object-position: center top;
-  border-radius: var(--radius);
+  object-position: center 12%;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--border-gold);
 }
 
 @media (max-width: 768px) {
   .hero {
     align-items: stretch;
     min-height: 0;
-    padding-block: 6.5rem var(--space-12);
+    padding-block: 6rem var(--space-12);
   }
 
-  /* Small portrait set to the right: keeps the buttons on the first screen. */
   .hero__content {
     display: flex;
     flex-direction: column-reverse;
     align-items: stretch;
-    row-gap: var(--space-4);
+    row-gap: var(--space-6);
   }
 
-  .hero__visual {
-    align-self: flex-end;
-    width: clamp(6.5rem, 30vw, 11rem);
+  .hero__photo {
+    width: 7rem;
   }
 
   .hero__name {
-    margin-bottom: var(--space-6);
-  }
-
-  .hero__title {
     margin-bottom: var(--space-4);
   }
 
   .hero__description {
-    line-height: 1.6;
     margin-bottom: var(--space-6);
   }
 }
 
 /* Too narrow for one line at this size: stack the parts, with no stray divider. */
-@media (max-width: 480px), (min-width: 769px) and (max-width: 920px) {
+@media (max-width: 400px) {
   .hero__title-part {
     display: block;
   }
