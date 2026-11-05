@@ -10,7 +10,7 @@ const SKILLS = [
       "TypeScript",
       "Prisma",
       "MySQL",
-      "Auth.js (Google sign-in)",
+      "Google OAuth (Auth.js)",
       "AI integration (Groq, Tavily)",
       "Vercel",
     ],
