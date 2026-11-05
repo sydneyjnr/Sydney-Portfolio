@@ -31,7 +31,7 @@ function TimelineDot({ active }) {
   );
 }
 
-function TimelineCard({ item, index }) {
+function TimelineCard({ item }) {
   const ref = useRef(null);
   const inView = useInView(ref, {
     once: true,
