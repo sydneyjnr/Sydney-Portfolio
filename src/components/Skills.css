@@ -30,8 +30,25 @@
   color: var(--text-primary);
 }
 
+/* Stacked, each group becomes a row with its label in a margin of its own. */
 @media (max-width: 1023px) {
   .skills__grid {
     grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--space-8);
+  }
+
+  .skill-group {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    column-gap: var(--space-4);
+  }
+
+  .skill-group__title {
+    margin-bottom: 0;
+    padding-top: 0.35em;
+  }
+
+  .skill-group__list {
+    font-size: var(--step-body);
   }
 }
