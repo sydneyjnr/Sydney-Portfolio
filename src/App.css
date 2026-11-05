@@ -2,13 +2,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 0 var(--space-6);
+  min-height: 44px;
+  padding-inline: var(--space-6);
   border: 1px solid transparent;
   border-radius: var(--radius);
   font-family: var(--font-sans);
   font-size: var(--step-small);
-  font-weight: 500;
+  font-weight: 450;
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
@@ -24,7 +24,7 @@
 }
 
 .btn--primary:hover {
-  background: var(--text-primary);
+  background: var(--gold-soft);
 }
 
 .btn--outline {
@@ -34,6 +34,5 @@
 }
 
 .btn--outline:hover {
-  border-color: var(--gold-rich);
-  color: var(--gold-rich);
+  border-color: var(--text-primary);
 }

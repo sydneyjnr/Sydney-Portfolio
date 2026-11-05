@@ -9,25 +9,27 @@
   --text-secondary: #BDBDBD;
   --border-gold: rgba(201, 162, 39, 0.3);
   --shadow-gold: rgba(212, 175, 55, 0.08);
-  /* Neutral hairlines, so gold can stay an accent. All are tints of --text-primary. */
-  --rule: rgba(248, 248, 248, 0.12);
-  --rule-strong: rgba(248, 248, 248, 0.24);
-  --rule-control: rgba(248, 248, 248, 0.42);
+  /* Tints of the text colours: quiet labels, hairlines, and form controls. */
+  --text-muted: rgba(189, 189, 189, 0.72);
+  --rule: rgba(248, 248, 248, 0.1);
+  --rule-strong: rgba(248, 248, 248, 0.1);
+  --rule-control: rgba(248, 248, 248, 0.38);
 
   /* Type */
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-heading: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, Consolas, monospace;
-  --step-label: 0.8125rem;
-  --step-small: 0.9375rem;
-  --step-body: 1.0625rem;
-  --step-lead: clamp(1.1875rem, 1.1rem + 0.35vw, 1.375rem);
-  --step-title: clamp(1.75rem, 1.35rem + 1.7vw, 2.75rem);
-  --step-display: clamp(2.75rem, 1.5rem + 6vw, 6.5rem);
-  --step-hero: clamp(5rem, 12vw, 11rem);
-  --weight-display: 550;
-  --tracking-display: -0.045em;
-  --tracking-title: -0.03em;
+  --step-label: 0.75rem;
+  --step-small: 0.875rem;
+  --step-body: 1rem;
+  --step-lead: 1.0625rem;
+  --step-title: clamp(1.1875rem, 1.1rem + 0.35vw, 1.375rem);
+  --step-title-lead: clamp(1.375rem, 1.2rem + 0.75vw, 1.75rem);
+  --step-display: clamp(1.625rem, 1.35rem + 1vw, 2.25rem);
+  --step-hero: clamp(3.5rem, 7vw, 6.25rem);
+  --weight-display: 450;
+  --tracking-display: -0.03em;
+  --tracking-title: -0.02em;
 
   /* Space, on a 4px base */
   --space-1: 0.25rem;
@@ -39,14 +41,15 @@
   --space-12: 3rem;
   --space-16: 4rem;
   --space-24: 6rem;
-  --space-section: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+  --space-section: clamp(3.5rem, 2.5rem + 4vw, 6rem);
 
-  /* Page grid: a narrow margin column for metadata, a wide column for content */
+  /* Page grid: one left column for section titles, one right column for content */
   --page-max: 1280px;
   --gutter: clamp(1.25rem, 3.4vw, 3rem);
   --page-inset: max(var(--gutter), calc((100% - var(--page-max)) / 2));
+  --index-cols: minmax(0, 1fr) minmax(0, 2.5fr);
   --col-margin: clamp(7.5rem, 16vw, 13rem);
-  --col-gap: var(--space-8);
+  --col-gap: clamp(var(--space-8), 4vw, var(--space-16));
 
   /* Motion and shape */
   --ease: cubic-bezier(0.2, 0, 0, 1);
@@ -71,7 +74,7 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   font-size: var(--step-body);
-  line-height: 1.65;
+  line-height: 1.7;
   overflow-x: hidden;
 }
 
@@ -104,25 +107,31 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold-soft);
+  background: var(--text-muted);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 500;
-  line-height: 1.05;
+  font-weight: var(--weight-display);
+  line-height: 1.2;
   letter-spacing: var(--tracking-title);
   text-wrap: balance;
 }
 
+/* One link style for the whole site: a quiet underline that firms up on hover. */
 a {
-  color: var(--gold-soft);
-  text-decoration: none;
-  transition: color var(--duration) var(--ease);
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--rule-control);
+  text-underline-offset: 0.25em;
+  transition:
+    color var(--duration) var(--ease),
+    text-decoration-color var(--duration) var(--ease);
 }
 
 a:hover {
-  color: var(--gold-rich);
+  text-decoration-color: currentColor;
 }
 
 img {
@@ -153,50 +162,45 @@ img {
 }
 
 .section-head {
-  margin-bottom: clamp(var(--space-12), 2rem + 4vw, var(--space-24));
+  margin-bottom: var(--space-12);
 }
 
 .section-index {
+  display: block;
   font-family: var(--font-mono);
   font-size: var(--step-label);
   line-height: 1;
-  color: var(--gold-soft);
-  padding-top: 0.6em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
 }
 
 .section-title {
   font-size: var(--step-display);
-  font-weight: var(--weight-display);
-  line-height: 0.98;
+  line-height: 1.15;
   letter-spacing: var(--tracking-display);
   color: var(--text-primary);
 }
 
 .section-subtitle {
-  font-size: var(--step-lead);
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--text-secondary);
-  max-width: 34em;
-  margin-top: var(--space-6);
+  max-width: 30em;
+  margin-top: var(--space-3);
   text-wrap: pretty;
 }
 
 [data-reveal] {
   transition:
-    opacity 500ms var(--ease),
-    transform 500ms var(--ease);
+    opacity 450ms var(--ease),
+    transform 450ms var(--ease);
 }
 
 [data-reveal="pending"] {
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(8px);
 }
 
-@media (max-width: 768px) {
-  :root {
-    --step-hero: min(18.5vw, 9rem);
-  }
-
+@media (max-width: 960px) {
   .section {
     /* Keeps section titles clear of the fixed navbar after a nav link jump. */
     scroll-margin-top: 44px;
@@ -209,10 +213,6 @@ img {
 
   .index-content {
     grid-column: 1;
-  }
-
-  .section-index {
-    padding-top: 0;
   }
 }
 
