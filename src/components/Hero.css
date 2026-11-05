@@ -2,9 +2,9 @@
   position: relative;
   display: flex;
   align-items: center;
-  min-height: min(100vh, 48rem);
-  min-height: min(100svh, 48rem);
-  padding-block: 7rem var(--space-16);
+  min-height: min(100vh, 42rem);
+  min-height: min(100svh, 42rem);
+  padding-block: 6rem var(--space-12);
   padding-inline: var(--page-inset);
 }
 
