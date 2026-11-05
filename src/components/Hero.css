@@ -33,6 +33,7 @@
 
 .hero__name {
   font-size: var(--step-hero);
+  font-weight: var(--weight-display);
   line-height: 0.92;
   letter-spacing: var(--tracking-display);
   color: var(--text-primary);
@@ -87,19 +88,32 @@
   .hero {
     align-items: stretch;
     min-height: 0;
-    padding-block: 7.5rem var(--space-16);
+    padding-block: 6.5rem var(--space-12);
   }
 
-  /* Small portrait set to the right: keeps the buttons close to the first screen. */
+  /* Small portrait set to the right: keeps the buttons on the first screen. */
   .hero__content {
     display: flex;
     flex-direction: column-reverse;
-    row-gap: var(--space-8);
+    row-gap: var(--space-4);
   }
 
   .hero__visual {
     align-self: flex-end;
-    width: clamp(8.5rem, 38vw, 13rem);
+    width: clamp(6.5rem, 30vw, 11rem);
+  }
+
+  .hero__name {
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__title {
+    margin-bottom: var(--space-4);
+  }
+
+  .hero__description {
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
   }
 }
 

@@ -29,8 +29,11 @@
 }
 
 @media (max-width: 768px) {
+  /* The text fills the phone hero, so the lines thin out before they reach it. */
   .grid-bg {
     --grid-cell: 40px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 10%, transparent 62%);
+    mask-image: linear-gradient(to bottom, #000 10%, transparent 62%);
   }
 }
 

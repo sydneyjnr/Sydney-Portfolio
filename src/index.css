@@ -24,7 +24,8 @@
   --step-lead: clamp(1.1875rem, 1.1rem + 0.35vw, 1.375rem);
   --step-title: clamp(1.75rem, 1.35rem + 1.7vw, 2.75rem);
   --step-display: clamp(2.75rem, 1.5rem + 6vw, 6.5rem);
-  --step-hero: clamp(5rem, 10vw, 9rem);
+  --step-hero: clamp(5rem, 12vw, 11rem);
+  --weight-display: 550;
   --tracking-display: -0.045em;
   --tracking-title: -0.03em;
 
@@ -192,7 +193,7 @@ img {
 
 @media (max-width: 768px) {
   :root {
-    --step-hero: min(16vw, 9rem);
+    --step-hero: min(18.5vw, 9rem);
   }
 
   .section {
