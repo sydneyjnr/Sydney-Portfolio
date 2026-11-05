@@ -9,7 +9,7 @@ const EXPERIENCE = [
   description: 'Participating in a structured internship focused on web development, data science, self-development, and professional growth.',
   achievements: [
     'Developing practical skills in web development and data science through guided learning, assignments, and hands-on activities.',
-    'Building experience with JavaScript, React, Python, data analysis, and data visualization.',
+    'Building experience with JavaScript, TypeScript, React, Next.js, Prisma, MySQL, Chakra UI, Python, data analysis, and data visualization.',
     'Strengthening problem-solving, communication, collaboration, and professional skills through mentorship and practical learning.'
   ],
 },
