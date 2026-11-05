@@ -1,90 +1,49 @@
-/* Title and intro sit opposite each other, unlike the stacked heads elsewhere. */
-.projects .section-head {
-  margin-bottom: var(--space-12);
-}
-
-.projects__heading {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: var(--space-6) var(--space-16);
-}
-
-.projects__heading .section-subtitle {
-  flex: 0 1 24em;
-  margin-top: 0;
+.projects__list {
+  min-width: 0;
 }
 
 .project {
-  padding-block: clamp(var(--space-8), 1.5rem + 2.5vw, var(--space-16));
-  border-top: 1px solid var(--rule-strong);
+  padding-block: var(--space-8);
+  border-top: 1px solid var(--rule);
+}
+
+.project:first-child {
+  padding-top: 0;
+  border-top: 0;
 }
 
 .project:last-child {
   padding-bottom: 0;
 }
 
-.project__main {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: var(--space-8) var(--space-16);
-  align-items: start;
-  min-width: 0;
-}
-
 .project__title {
   font-size: var(--step-title);
-  line-height: 1.1;
-  margin-bottom: var(--space-4);
-  max-width: 24em;
+  line-height: 1.25;
+  margin-bottom: var(--space-2);
+  max-width: 34em;
 }
 
-/* The lead project gets the room: first in the list, largest on the page. */
+/* The lead project: first in the list, one step larger. */
 .project:first-child .project__title {
-  font-size: clamp(2.25rem, 1.4rem + 3.8vw, 4.5rem);
-  line-height: 1;
-  letter-spacing: var(--tracking-display);
-  margin-bottom: var(--space-6);
-}
-
-.project:first-child .project__description {
-  font-size: var(--step-lead);
-  line-height: 1.5;
+  font-size: var(--step-title-lead);
+  line-height: 1.2;
+  margin-bottom: var(--space-3);
 }
 
 .project__title a {
   color: var(--text-primary);
+  text-decoration: none;
 }
 
 .project__title a:hover {
   color: var(--gold-rich);
 }
 
-.project__title a::after {
-  content: "\2197";
-  display: inline-block;
-  margin-left: 0.2em;
-  font-weight: 400;
-  color: var(--gold-rich);
-  opacity: 0;
-  transform: translate(-0.12em, 0.12em);
-  transition:
-    opacity var(--duration) var(--ease),
-    transform var(--duration) var(--ease);
-}
-
-.project__title a:hover::after,
-.project__title a:focus-visible::after {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
 .project__description {
   color: var(--text-secondary);
   line-height: 1.65;
   max-width: 38em;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   text-wrap: pretty;
 }
 
@@ -92,57 +51,41 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-1) var(--space-4);
+  gap: var(--space-1) var(--space-3);
   font-family: var(--font-mono);
   font-size: var(--step-label);
-  color: var(--text-secondary);
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
 }
 
 .project__links {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-1);
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-6);
 }
 
 .project__link {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  min-height: 36px;
+  min-height: 32px;
   font-size: var(--step-small);
-  color: var(--text-primary);
+  color: var(--text-secondary);
+  text-decoration-color: transparent;
   white-space: nowrap;
 }
 
-.project__link svg {
-  color: var(--text-secondary);
-  transition: color var(--duration) var(--ease);
+.project__link:hover {
+  color: var(--text-primary);
+  text-decoration-color: currentColor;
 }
 
-.project__link:hover,
-.project__link:hover svg {
-  color: var(--gold-rich);
-}
-
-@media (max-width: 1023px) {
-  .project__main {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .project__links {
-    flex-direction: row;
-    gap: var(--space-6);
-  }
-
+@media (max-width: 960px) {
   .project__link {
     min-height: 44px;
   }
-}
 
-/* No hover to reveal the arrow on touch screens: leave it out. */
-@media (hover: none) {
-  .project__title a::after {
-    content: none;
+  .project__tags {
+    margin-bottom: var(--space-1);
   }
 }
