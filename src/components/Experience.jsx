@@ -14,35 +14,29 @@ const EXPERIENCE = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="section experience">
-      <div className="section-head index-row" data-reveal>
+    <section id="experience" className="section experience" data-reveal>
+      <div className="section-head">
         <span className="section-index" aria-hidden="true">03</span>
-        <div>
-          <h2 className="section-title">Experience</h2>
-          <p className="section-subtitle">
-            My professional journey building software that makes an impact.
-          </p>
-        </div>
+        <h2 className="section-title">Experience</h2>
+        <p className="section-subtitle">
+          My professional journey building software that makes an impact.
+        </p>
       </div>
 
       <div className="experience__list">
         {EXPERIENCE.map((item) => (
-          <article key={item.role + item.company} className="job index-row" data-reveal>
-            <p className={`job__period${item.period.endsWith('Present') ? ' job__period--current' : ''}`}>
-              {item.period}
-            </p>
-            <div className="index-content job__body">
-              <div>
-                <h3 className="job__role">{item.role}</h3>
-                <p className="job__company">{item.company}</p>
-                <p className="job__description">{item.description}</p>
-              </div>
-              <ul className="job__achievements">
-                {item.achievements.map((a) => (
-                  <li key={a}>{a}</li>
-                ))}
-              </ul>
+          <article key={item.role + item.company} className="job">
+            <div className="job__header">
+              <h3 className="job__role">{item.role}</h3>
+              <p className="job__period">{item.period}</p>
             </div>
+            <p className="job__company">{item.company}</p>
+            <p className="job__description">{item.description}</p>
+            <ul className="job__achievements">
+              {item.achievements.map((a) => (
+                <li key={a}>{a}</li>
+              ))}
+            </ul>
           </article>
         ))}
       </div>
