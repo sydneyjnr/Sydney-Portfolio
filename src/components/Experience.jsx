@@ -31,10 +31,12 @@ export default function Experience() {
             <p className={`job__period${item.period.endsWith('Present') ? ' job__period--current' : ''}`}>
               {item.period}
             </p>
-            <div className="index-content">
-              <h3 className="job__role">{item.role}</h3>
-              <p className="job__company">{item.company}</p>
-              <p className="job__description">{item.description}</p>
+            <div className="index-content job__body">
+              <div>
+                <h3 className="job__role">{item.role}</h3>
+                <p className="job__company">{item.company}</p>
+                <p className="job__description">{item.description}</p>
+              </div>
               <ul className="job__achievements">
                 {item.achievements.map((a) => (
                   <li key={a}>{a}</li>

@@ -16,6 +16,13 @@
   color: var(--gold-soft);
 }
 
+.job__body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8) clamp(var(--space-8), 4vw, var(--space-16));
+  align-items: start;
+}
+
 .job__role {
   font-size: var(--step-title);
   line-height: 1.1;
@@ -32,13 +39,11 @@
   line-height: 1.5;
   color: var(--text-secondary);
   max-width: 34em;
-  margin-bottom: var(--space-8);
   text-wrap: pretty;
 }
 
 .job__achievements {
   list-style: none;
-  max-width: 44em;
   color: var(--text-secondary);
 }
 
@@ -46,4 +51,21 @@
   padding-block: var(--space-4);
   border-top: 1px solid var(--rule);
   text-wrap: pretty;
+}
+
+/* The first rule would double up with the row's own top rule at the same height. */
+.job__achievements li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+@media (max-width: 1023px) {
+  .job__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .job__achievements li:first-child {
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--rule);
+  }
 }
