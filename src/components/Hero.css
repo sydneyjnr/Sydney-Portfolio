@@ -14,15 +14,6 @@
   pointer-events: none;
 }
 
-.hero__grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(201, 162, 39, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201, 162, 39, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
 .hero__orb {
   position: absolute;
   top: 50%;

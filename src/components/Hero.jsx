@@ -9,7 +9,6 @@ export default function Hero() {
   return (
     <section id="home" className="hero">
       <div className="hero__bg" aria-hidden="true">
-        <div className="hero__grid" />
         <div className="hero__orb" />
         <div className="hero__circuit">
           <svg width="300" height="300" viewBox="0 0 300 300" fill="none">
