@@ -1,4 +1,5 @@
 :root {
+  /* Colour */
   --bg-primary: #0B0B0B;
   --bg-secondary: #151515;
   --bg-card: #1C1C1C;
@@ -8,9 +9,48 @@
   --text-secondary: #BDBDBD;
   --border-gold: rgba(201, 162, 39, 0.3);
   --shadow-gold: rgba(212, 175, 55, 0.08);
+  /* Neutral hairlines, so gold can stay an accent. All are tints of --text-primary. */
+  --rule: rgba(248, 248, 248, 0.12);
+  --rule-strong: rgba(248, 248, 248, 0.24);
+  --rule-control: rgba(248, 248, 248, 0.42);
+
+  /* Type */
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-heading: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, Consolas, monospace;
+  --step-label: 0.8125rem;
+  --step-small: 0.9375rem;
+  --step-body: 1.0625rem;
+  --step-lead: clamp(1.1875rem, 1.1rem + 0.35vw, 1.375rem);
+  --step-title: clamp(1.75rem, 1.35rem + 1.7vw, 2.75rem);
+  --step-display: clamp(2.75rem, 1.5rem + 6vw, 6.5rem);
+  --step-hero: clamp(5rem, 10vw, 9rem);
+  --tracking-display: -0.045em;
+  --tracking-title: -0.03em;
+
+  /* Space, on a 4px base */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-section: clamp(5rem, 3rem + 9vw, 11rem);
+
+  /* Page grid: a narrow margin column for metadata, a wide column for content */
+  --page-max: 1280px;
+  --gutter: clamp(1.25rem, 3.4vw, 3rem);
+  --page-inset: max(var(--gutter), calc((100% - var(--page-max)) / 2));
+  --col-margin: clamp(7.5rem, 16vw, 13rem);
+  --col-gap: var(--space-8);
+
+  /* Motion and shape */
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --duration: 200ms;
+  --radius: 3px;
 
   font-family: var(--font-sans);
   color: var(--text-primary);
@@ -29,7 +69,8 @@
 body {
   /* The base black is on :root; a body background would cover .grid-bg. */
   color: var(--text-primary);
-  line-height: 1.6;
+  font-size: var(--step-body);
+  line-height: 1.65;
   overflow-x: hidden;
 }
 
@@ -40,6 +81,12 @@ body {
 ::selection {
   background: var(--gold-rich);
   color: var(--bg-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-rich);
+  outline-offset: 3px;
+  border-radius: 1px;
 }
 
 ::-webkit-scrollbar {
@@ -61,15 +108,16 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: var(--tracking-title);
+  text-wrap: balance;
 }
 
 a {
   color: var(--gold-soft);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color var(--duration) var(--ease);
 }
 
 a:hover {
@@ -83,49 +131,75 @@ img {
 }
 
 .section {
-  padding: 100px 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding-block: var(--space-section);
+  padding-inline: var(--page-inset);
+}
+
+.section + .section {
+  border-top: 1px solid var(--rule);
+}
+
+/* The two-column rhythm every section hangs from. */
+.index-row {
+  display: grid;
+  grid-template-columns: var(--col-margin) minmax(0, 1fr);
+  column-gap: var(--col-gap);
+}
+
+.section-head {
+  margin-bottom: clamp(var(--space-12), 2rem + 4vw, var(--space-24));
+}
+
+.section-index {
+  font-family: var(--font-mono);
+  font-size: var(--step-label);
+  line-height: 1;
+  color: var(--gold-soft);
+  padding-top: 0.6em;
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: var(--step-display);
+  line-height: 0.98;
+  letter-spacing: var(--tracking-display);
   color: var(--text-primary);
-  margin-bottom: 1rem;
-  position: relative;
-  display: inline-block;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background: var(--gold-rich);
-  border-radius: 2px;
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
+  font-size: var(--step-lead);
+  line-height: 1.5;
   color: var(--text-secondary);
-  margin-bottom: 3rem;
-  max-width: 600px;
+  max-width: 34em;
+  margin-top: var(--space-6);
+  text-wrap: pretty;
 }
 
 @media (max-width: 768px) {
+  :root {
+    --step-hero: min(16vw, 9rem);
+  }
+
   .section {
-    padding: 60px 16px;
     /* Keeps section titles clear of the fixed navbar after a nav link jump. */
     scroll-margin-top: 44px;
   }
 
-  .section-title {
-    font-size: 1.8rem;
+  .index-row {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--space-4);
   }
 
-  .section-subtitle {
-    font-size: 1rem;
+  .section-index {
+    padding-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
   }
 }
