@@ -119,6 +119,11 @@
   font-weight: 400;
 }
 
+/* Each part stays whole, so a long title can only wrap at the divider. */
+.hero__title-part {
+  display: inline-block;
+}
+
 .hero__description {
   font-size: 1.05rem;
   color: var(--text-secondary);
@@ -204,6 +209,20 @@
 
   .hero__code,
   .hero__circuit {
+    display: none;
+  }
+}
+
+/*
+ * Too narrow for one line at this size: stack the parts, with no stray divider.
+ * The second range is where the two-column layout squeezes the text column.
+ */
+@media (max-width: 480px), (min-width: 769px) and (max-width: 920px) {
+  .hero__title-part {
+    display: block;
+  }
+
+  .hero__title-divider {
     display: none;
   }
 }
