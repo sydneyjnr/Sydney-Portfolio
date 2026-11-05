@@ -1,122 +1,55 @@
 .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 120px 24px 80px;
   position: relative;
-  overflow: hidden;
-}
-
-.hero__bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.hero__orb {
-  position: absolute;
-  top: 50%;
-  right: 10%;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
-  transform: translateY(-50%);
-}
-
-.hero__circuit {
-  position: absolute;
-  top: 50%;
-  right: 5%;
-  transform: translateY(-50%);
-  opacity: 0.6;
-}
-
-.hero__code {
-  position: absolute;
-  top: 50%;
-  right: 8%;
-  transform: translateY(-50%);
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  opacity: 0.3;
-}
-
-.hero__code-tag {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--gold-soft);
-  animation: floatCode 4s ease-in-out infinite;
-  opacity: 0;
-  animation-fill-mode: both;
-}
-
-@keyframes floatCode {
-  0%, 100% { opacity: 0; transform: translateY(10px); }
-  25%, 75% { opacity: 1; }
-  50% { transform: translateY(-10px); }
+  align-items: flex-end;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-block: 9rem var(--space-16);
+  padding-inline: var(--page-inset);
 }
 
 .hero__content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 60px;
-  max-width: 1200px;
-  width: 100%;
   position: relative;
   z-index: 1;
-  animation: heroFadeIn 1s ease forwards;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(13.75rem, 25vw, 22rem);
+  column-gap: clamp(var(--space-8), 5vw, var(--space-24));
+  align-items: end;
+  width: 100%;
+  animation: heroFadeIn 500ms var(--ease) both;
 }
 
 @keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-.hero__text {
-  flex: 1;
-  max-width: 580px;
 }
 
 .hero__greeting {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: var(--step-label);
   color: var(--gold-soft);
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
+  margin-bottom: var(--space-4);
 }
 
 .hero__name {
-  font-size: 3.5rem;
-  margin-bottom: 0.5rem;
+  font-size: var(--step-hero);
+  line-height: 0.92;
+  letter-spacing: var(--tracking-display);
   color: var(--text-primary);
+  /* Optical alignment: pulls the capital I onto the left edge of the text below. */
+  margin-left: -0.04em;
+  margin-bottom: var(--space-8);
 }
 
 .hero__name-highlight {
   color: var(--gold-rich);
-  position: relative;
-}
-
-.hero__name-highlight::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--gold-rich);
-  opacity: 0.3;
-  border-radius: 2px;
 }
 
 .hero__title {
-  font-size: 1.4rem;
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  font-weight: 400;
+  font-size: var(--step-lead);
+  line-height: 1.35;
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
 }
 
 /* Each part stays whole, so a long title can only wrap at the divider. */
@@ -124,99 +57,53 @@
   display: inline-block;
 }
 
+.hero__title-divider {
+  color: var(--gold-soft);
+}
+
 .hero__description {
-  font-size: 1.05rem;
   color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  max-width: 38em;
+  margin-bottom: var(--space-8);
+  text-wrap: pretty;
 }
 
 .hero__actions {
   display: flex;
-  gap: 16px;
-}
-
-.hero__visual {
-  flex-shrink: 0;
-  position: relative;
-}
-
-.hero__photo-frame {
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  border: 2px solid var(--border-gold);
-  overflow: hidden;
-  position: relative;
-  box-shadow:
-    0 0 40px rgba(212, 175, 55, 0.1),
-    inset 0 0 40px rgba(212, 175, 55, 0.05);
-}
-
-.hero__photo-frame::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, transparent, var(--gold-rich), transparent, var(--gold-rich), transparent);
-  opacity: 0.15;
-  animation: rotateBorder 6s linear infinite;
-  z-index: -1;
-}
-
-@keyframes rotateBorder {
-  to { transform: rotate(360deg); }
+  flex-wrap: wrap;
+  gap: var(--space-3);
 }
 
 .hero__photo {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius);
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 100px 16px 60px;
-    min-height: auto;
+    align-items: stretch;
+    min-height: 0;
+    padding-block: 7.5rem var(--space-16);
   }
 
+  /* Small portrait set to the right: keeps the buttons close to the first screen. */
   .hero__content {
+    display: flex;
     flex-direction: column-reverse;
-    gap: 40px;
-    text-align: center;
+    row-gap: var(--space-8);
   }
 
-  .hero__text {
-    max-width: 100%;
-  }
-
-  .hero__name {
-    font-size: 2.2rem;
-  }
-
-  .hero__title {
-    font-size: 1.1rem;
-  }
-
-  .hero__actions {
-    justify-content: center;
-  }
-
-  .hero__photo-frame {
-    width: 220px;
-    height: 220px;
-  }
-
-  .hero__code,
-  .hero__circuit {
-    display: none;
+  .hero__visual {
+    align-self: flex-end;
+    width: clamp(8.5rem, 38vw, 13rem);
   }
 }
 
-/*
- * Too narrow for one line at this size: stack the parts, with no stray divider.
- * The second range is where the two-column layout squeezes the text column.
- */
+/* Too narrow for one line at this size: stack the parts, with no stray divider. */
 @media (max-width: 480px), (min-width: 769px) and (max-width: 920px) {
   .hero__title-part {
     display: block;
@@ -228,8 +115,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__code-tag {
+  .hero__content {
     animation: none;
-    opacity: 1;
   }
 }

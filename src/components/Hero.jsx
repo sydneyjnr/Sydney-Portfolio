@@ -1,3 +1,4 @@
+import GridBackground from "./GridBackground";
 import heroImg from "../assets/hero.png";
 
 export default function Hero() {
@@ -8,91 +9,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero">
-      <div className="hero__bg" aria-hidden="true">
-        <div className="hero__orb" />
-        <div className="hero__circuit">
-          <svg width="300" height="300" viewBox="0 0 300 300" fill="none">
-            <path
-              d="M0 150h60l30-30 30 30h180"
-              stroke="var(--gold-soft)"
-              strokeWidth="0.5"
-              opacity="0.15"
-            />
-            <path
-              d="M0 180h40l20-20 20 20h220"
-              stroke="var(--gold-soft)"
-              strokeWidth="0.5"
-              opacity="0.1"
-            />
-            <path
-              d="M0 120h50l25-25 25 25h200"
-              stroke="var(--gold-soft)"
-              strokeWidth="0.5"
-              opacity="0.1"
-            />
-            <circle
-              cx="90"
-              cy="150"
-              r="2"
-              fill="var(--gold-soft)"
-              opacity="0.3"
-            />
-            <circle
-              cx="150"
-              cy="150"
-              r="2"
-              fill="var(--gold-soft)"
-              opacity="0.3"
-            />
-            <circle
-              cx="210"
-              cy="150"
-              r="2"
-              fill="var(--gold-soft)"
-              opacity="0.3"
-            />
-            <circle
-              cx="60"
-              cy="180"
-              r="1.5"
-              fill="var(--gold-soft)"
-              opacity="0.2"
-            />
-            <circle
-              cx="100"
-              cy="160"
-              r="1.5"
-              fill="var(--gold-soft)"
-              opacity="0.2"
-            />
-            <circle
-              cx="50"
-              cy="120"
-              r="1.5"
-              fill="var(--gold-soft)"
-              opacity="0.2"
-            />
-            <circle
-              cx="100"
-              cy="95"
-              r="1.5"
-              fill="var(--gold-soft)"
-              opacity="0.2"
-            />
-          </svg>
-        </div>
-        <div className="hero__code" aria-hidden="true">
-          {["{ }", "< />", "() =>", ">>>_", "/* */"].map((s, i) => (
-            <span
-              key={i}
-              className="hero__code-tag"
-              style={{ animationDelay: `${i * 0.8}s` }}
-            >
-              {s}
-            </span>
-          ))}
-        </div>
-      </div>
+      <GridBackground />
 
       <div className="hero__content">
         <div className="hero__text">
@@ -131,9 +48,13 @@ export default function Hero() {
         </div>
 
         <div className="hero__visual">
-          <div className="hero__photo-frame">
-            <img src={heroImg} alt="Sydney" className="hero__photo" />
-          </div>
+          <img
+            src={heroImg}
+            alt="Sydney"
+            className="hero__photo"
+            width="814"
+            height="1071"
+          />
         </div>
       </div>
     </section>
