@@ -48,8 +48,8 @@
   --gutter: clamp(1.25rem, 3.4vw, 3rem);
   --page-inset: max(var(--gutter), calc((100% - var(--page-max)) / 2));
   --index-cols: minmax(0, 1fr) minmax(0, 2.5fr);
-  --col-margin: clamp(7.5rem, 16vw, 13rem);
   --col-gap: clamp(var(--space-8), 4vw, var(--space-16));
+  --measure: 38rem;
 
   /* Motion and shape */
   --ease: cubic-bezier(0.2, 0, 0, 1);
