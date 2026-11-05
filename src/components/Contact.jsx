@@ -1,4 +1,52 @@
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+
+const CONTACT_EMAIL = 'sydneychristopherjnr@gmail.com';
+
+// Always in the site owner's time zone, wherever the visitor is writing from.
+const formatTime = () =>
+  new Date().toLocaleString('en-GB', {
+    dateStyle: 'medium',
+    timeStyle: 'long',
+    timeZone: 'Africa/Lagos',
+  });
+
 export default function Contact() {
+  const [status, setStatus] = useState('idle');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (status === 'sending') return;
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    setStatus('sending');
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          name: data.get('name'),
+          email: data.get('email'),
+          message: data.get('message'),
+          time: formatTime(),
+        },
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY },
+      );
+      form.reset();
+      setStatus('success');
+    } catch (error) {
+      console.error('Contact form failed to send:', error);
+      setStatus('error');
+    }
+  };
+
+  // An old result shouldn't linger once the visitor starts a new message.
+  const clearResult = () => {
+    if (status === 'success' || status === 'error') setStatus('idle');
+  };
+
   return (
     <section id="contact" className="section contact">
       <div className="contact__reveal">
@@ -49,26 +97,8 @@ export default function Contact() {
 
         <form
   className="contact__form"
-  onSubmit={(e) => {
-    e.preventDefault();
-
-    const form = e.currentTarget;
-    const name = form.name.value;
-    const email = form.email.value;
-    const message = form.message.value;
-
-    const subject = `Portfolio Contact from ${name}`;
-
-    const body = `Name: ${name}
-Email: ${email}
-
-Message:
-${message}`;
-
-    window.location.href = `mailto:sydneychristopherjnr@gmail.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-  }}
+  onSubmit={handleSubmit}
+  onChange={clearResult}
 >
   <div className="contact__field">
     <label htmlFor="name" className="contact__label">
@@ -115,9 +145,24 @@ ${message}`;
   <button
     type="submit"
     className="btn btn--primary contact__submit"
+    disabled={status === 'sending'}
   >
-    Send Message
+    {status === 'sending' ? 'Sending…' : 'Send Message'}
   </button>
+
+  <div
+    className={`contact__status contact__status--${status}`}
+    role="status"
+    aria-live="polite"
+  >
+    {status === 'success' && "Thanks! Your message has been sent. I'll get back to you soon."}
+    {status === 'error' && (
+      <>
+        Sorry, your message couldn't be sent. Please email me directly at{' '}
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+      </>
+    )}
+  </div>
 </form>
       </div>
     </section>
