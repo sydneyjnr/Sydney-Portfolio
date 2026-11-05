@@ -1,196 +1,49 @@
-.experience {
-  position: relative;
+.job {
+  padding-top: clamp(var(--space-8), 1.5rem + 2.5vw, var(--space-16));
+  border-top: 1px solid var(--rule-strong);
 }
 
-.experience__reveal {
-  will-change: transform, opacity;
-}
-
-.timeline {
-  display: flex;
-  gap: 0;
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.timeline__track {
-  position: relative;
-  width: 32px;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.timeline__track-bg {
-  width: 2px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 2px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-}
-
-.timeline__track-progress {
-  width: 2px;
-  background: var(--gold-rich);
-  border-radius: 2px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  will-change: transform;
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.25);
-}
-
-.timeline__items {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  min-width: 0;
-}
-
-.timeline__item {
-  display: flex;
-  gap: 24px;
-  position: relative;
-  padding-bottom: 40px;
-}
-
-.timeline__item:last-child {
-  padding-bottom: 0;
-}
-
-.timeline__item-dot {
-  width: 32px;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  padding-top: 6px;
-  position: relative;
-  z-index: 2;
-}
-
-.timeline__dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--gold-rich);
-  border: 3px solid var(--bg-secondary);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  will-change: transform, opacity;
-}
-
-.timeline__dot-glow {
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, transparent 70%);
-  animation: pulseGlow 2s ease-in-out infinite;
-}
-
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.15); }
-}
-
-.timeline__card {
-  flex: 1;
-  background: var(--bg-card);
-  border: 1px solid var(--border-gold);
-  border-radius: 16px;
-  padding: 28px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  will-change: transform, opacity;
-}
-
-.timeline__card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.1);
-  border-color: var(--gold-soft);
-}
-
-.timeline__card-meta {
-  margin-bottom: 8px;
-}
-
-.timeline__card-period {
+.job__period {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: var(--step-label);
+  line-height: 1.5;
+  color: var(--text-secondary);
+  padding-top: 0.4em;
+}
+
+/* A small mark for a role that's still running. */
+.job__period--current {
   color: var(--gold-soft);
-  letter-spacing: 0.5px;
 }
 
-.timeline__card-role {
-  font-size: 1.15rem;
+.job__role {
+  font-size: var(--step-title);
+  line-height: 1.1;
+  margin-bottom: var(--space-3);
+}
+
+.job__company {
   color: var(--text-primary);
-  margin-bottom: 4px;
+  margin-bottom: var(--space-6);
 }
 
-.timeline__card-company {
-  font-size: 0.95rem;
+.job__description {
+  font-size: var(--step-lead);
+  line-height: 1.5;
   color: var(--text-secondary);
-  margin-bottom: 12px;
+  max-width: 34em;
+  margin-bottom: var(--space-8);
+  text-wrap: pretty;
 }
 
-.timeline__card-description {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-
-.timeline__card-achievements {
+.job__achievements {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.timeline__card-achievement {
-  font-size: 0.8rem;
-  padding: 4px 12px;
-  border-radius: 20px;
-  background: rgba(201, 162, 39, 0.08);
+  max-width: 44em;
   color: var(--text-secondary);
-  border: 1px solid var(--border-gold);
 }
 
-@media (max-width: 768px) {
-  .timeline__track {
-    width: 24px;
-  }
-
-  .timeline__item {
-    gap: 16px;
-    padding-bottom: 32px;
-  }
-
-  .timeline__item-dot {
-    width: 24px;
-  }
-
-  .timeline__dot {
-    width: 12px;
-    height: 12px;
-    border-width: 2px;
-  }
-
-  .timeline__card {
-    padding: 20px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .timeline__track-progress {
-    display: none;
-  }
-
-  .timeline__dot-glow {
-    animation: none;
-    display: none;
-  }
+.job__achievements li {
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--rule);
+  text-wrap: pretty;
 }
