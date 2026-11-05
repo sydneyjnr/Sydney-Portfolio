@@ -38,7 +38,7 @@ export default function Navbar() {
     const id = href.slice(1);
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      el.scrollIntoView({ block: 'start' });
     }
   };
 

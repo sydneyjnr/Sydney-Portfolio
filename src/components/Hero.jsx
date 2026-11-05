@@ -4,7 +4,7 @@ import heroImg from "../assets/hero.png";
 export default function Hero() {
   const scrollTo = (id) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) el.scrollIntoView({ block: "start" });
   };
 
   return (
