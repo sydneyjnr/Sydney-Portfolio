@@ -64,6 +64,15 @@
   gap: 20px;
 }
 
+/* Off-screen rather than display: none, which many bots know to skip. */
+.contact__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .contact__field {
   display: flex;
   flex-direction: column;

@@ -21,6 +21,13 @@ export default function Contact() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
+    // Only bots fill the hidden field. Act as if it worked so they don't retry.
+    if (data.get('extra_info')) {
+      form.reset();
+      setStatus('success');
+      return;
+    }
+
     setStatus('sending');
     try {
       await emailjs.send(
@@ -100,6 +107,17 @@ export default function Contact() {
   onSubmit={handleSubmit}
   onChange={clearResult}
 >
+  <div className="contact__trap" aria-hidden="true">
+    <label htmlFor="extra_info">Leave this field empty</label>
+    <input
+      type="text"
+      id="extra_info"
+      name="extra_info"
+      tabIndex={-1}
+      autoComplete="off"
+    />
+  </div>
+
   <div className="contact__field">
     <label htmlFor="name" className="contact__label">
       Name
