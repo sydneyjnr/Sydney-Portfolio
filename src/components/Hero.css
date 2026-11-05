@@ -207,3 +207,10 @@
     display: none;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__code-tag {
+    animation: none;
+    opacity: 1;
+  }
+}
