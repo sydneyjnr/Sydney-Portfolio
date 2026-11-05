@@ -1,7 +1,7 @@
 const PROJECTS = [
   {
     title: 'Sydney – AI Companion',
-    description: 'An interactive AI chat companion with real-time web search, secure Google sign-in and saved conversation history.',
+    description: 'An interactive AI companion that chats naturally, searches the web for up-to-date answers, and remembers your conversations.',
     tags: ['Next.js', 'TypeScript', 'Prisma', 'MySQL', 'Auth.js', 'Groq', 'Tavily'],
     links: { github: 'https://github.com/sydneyjnr/sydney', live: 'https://sydney-six.vercel.app/' },
   },
