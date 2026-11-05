@@ -1,58 +1,47 @@
+/* Spans the section's grid and repeats its columns, so the form sits on the content edge. */
 .contact__content {
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: var(--space-16) clamp(var(--space-12), 7vw, 7rem);
+  grid-template-columns: var(--index-cols);
+  gap: var(--space-8) var(--col-gap);
   align-items: start;
+  min-width: 0;
 }
 
-.contact__info .section-index {
-  display: block;
-  padding: 0;
-  margin-bottom: var(--space-6);
+.contact__info {
+  min-width: 0;
 }
 
 .contact__text {
   color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 34em;
-  margin-block: var(--space-8);
+  max-width: 30em;
+  margin-block: var(--space-4) var(--space-6);
   text-wrap: pretty;
 }
 
 .contact__details {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  margin-bottom: var(--space-8);
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
 }
 
 .contact__detail {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  color: var(--text-primary);
+  color: var(--text-secondary);
   font-size: var(--step-small);
   min-width: 0;
 }
 
 .contact__detail svg {
   flex-shrink: 0;
+  color: var(--text-muted);
 }
 
 .contact__detail a {
-  color: var(--text-primary);
   overflow-wrap: anywhere;
-  text-decoration: underline;
-  text-decoration-color: var(--rule-control);
-  text-underline-offset: 0.25em;
-  transition:
-    color var(--duration) var(--ease),
-    text-decoration-color var(--duration) var(--ease);
-}
-
-.contact__detail a:hover {
-  color: var(--gold-rich);
-  text-decoration-color: var(--gold-rich);
 }
 
 .contact__social {
@@ -61,30 +50,30 @@
 }
 
 .contact__social-link {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--rule-strong);
+  border: 1px solid var(--rule);
   border-radius: var(--radius);
-  color: var(--text-primary);
+  color: var(--text-secondary);
   transition:
     color var(--duration) var(--ease),
     border-color var(--duration) var(--ease);
 }
 
 .contact__social-link:hover {
-  color: var(--gold-rich);
-  border-color: var(--gold-rich);
+  color: var(--text-primary);
+  border-color: var(--rule-control);
 }
 
 .contact__form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
-  /* Lines the first field up with the heading, not the small section number. */
-  padding-top: calc(var(--step-label) + var(--space-6));
+  gap: var(--space-6);
+  max-width: 36rem;
+  min-width: 0;
 }
 
 /* Off-screen rather than display: none, which many bots know to skip. */
@@ -104,12 +93,12 @@
 .contact__label {
   font-family: var(--font-mono);
   font-size: var(--step-label);
-  color: var(--text-secondary);
+  color: var(--text-muted);
 }
 
 .contact__input {
   width: 100%;
-  padding-block: var(--space-3);
+  padding-block: var(--space-2);
   background: transparent;
   border: 0;
   border-bottom: 1px solid var(--rule-control);
@@ -151,7 +140,7 @@
 
 .contact__textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 96px;
   line-height: 1.6;
 }
 
@@ -167,7 +156,7 @@
 .contact__status {
   padding-block: var(--space-3);
   padding-inline: var(--space-4);
-  border: 1px solid var(--rule-strong);
+  border: 1px solid var(--rule-control);
   border-radius: var(--radius);
   color: var(--text-primary);
   font-size: var(--step-small);
@@ -179,27 +168,12 @@
   display: none;
 }
 
-.contact__status a {
-  color: var(--gold-rich);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
-.contact__status--success {
-  border-color: var(--gold-soft);
-  color: var(--gold-rich);
-}
-
-.contact__status--error {
-  border-color: var(--gold-rich);
-}
-
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .contact__content {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .contact__form {
-    padding-top: 0;
+    max-width: none;
   }
 }
