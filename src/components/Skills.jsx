@@ -4,6 +4,18 @@ const SKILLS = [
     items: ["React", "JavaScript", "Next.js", "Tailwind CSS", "HTML/CSS"],
   },
   {
+    category: "Backend",
+    items: [
+      "Node.js",
+      "TypeScript",
+      "Prisma",
+      "MySQL",
+      "Auth.js (Google sign-in)",
+      "AI integration (Groq, Tavily)",
+      "Vercel",
+    ],
+  },
+  {
     category: "Data Science",
     items: ["Python", "Pandas", "Polars", "Plotly", "Lets-Plot", "Marimo"],
   },
