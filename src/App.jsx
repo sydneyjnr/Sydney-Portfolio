@@ -1,3 +1,4 @@
+import GridBackground from './components/GridBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
@@ -8,6 +9,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
 import './App.css';
+import './components/GridBackground.css';
 import './components/Navbar.css';
 import './components/Hero.css';
 import './components/Skills.css';
@@ -20,6 +22,7 @@ import './components/ScrollToTop.css';
 function App() {
   return (
     <>
+      <GridBackground />
       <Navbar />
       <main>
         <Hero />
