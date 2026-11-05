@@ -179,6 +179,17 @@ img {
   text-wrap: pretty;
 }
 
+[data-reveal] {
+  transition:
+    opacity 500ms var(--ease),
+    transform 500ms var(--ease);
+}
+
+[data-reveal="pending"] {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
 @media (max-width: 768px) {
   :root {
     --step-hero: min(16vw, 9rem);
