@@ -24,7 +24,7 @@ export default function Projects() {
     <section id="projects" className="section projects">
       <div className="section-head index-row" data-reveal>
         <span className="section-index" aria-hidden="true">02</span>
-        <div>
+        <div className="projects__heading">
           <h2 className="section-title">Projects</h2>
           <p className="section-subtitle">
             Selected projects that showcase my skills and passion for building great software.

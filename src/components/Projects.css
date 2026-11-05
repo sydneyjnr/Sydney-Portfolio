@@ -1,3 +1,21 @@
+/* Title and intro sit opposite each other, unlike the stacked heads elsewhere. */
+.projects .section-head {
+  margin-bottom: var(--space-12);
+}
+
+.projects__heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-6) var(--space-16);
+}
+
+.projects__heading .section-subtitle {
+  flex: 0 1 24em;
+  margin-top: 0;
+}
+
 .project {
   padding-block: clamp(var(--space-8), 1.5rem + 2.5vw, var(--space-16));
   border-top: 1px solid var(--rule-strong);

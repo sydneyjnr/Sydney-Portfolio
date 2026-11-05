@@ -39,7 +39,7 @@
   --space-12: 3rem;
   --space-16: 4rem;
   --space-24: 6rem;
-  --space-section: clamp(5rem, 3rem + 9vw, 11rem);
+  --space-section: clamp(4.5rem, 3rem + 6vw, 8.5rem);
 
   /* Page grid: a narrow margin column for metadata, a wide column for content */
   --page-max: 1280px;
@@ -166,6 +166,7 @@ img {
 
 .section-title {
   font-size: var(--step-display);
+  font-weight: var(--weight-display);
   line-height: 0.98;
   letter-spacing: var(--tracking-display);
   color: var(--text-primary);
