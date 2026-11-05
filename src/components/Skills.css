@@ -1,5 +1,6 @@
 .skills {
   background: var(--bg-secondary);
+  background: color-mix(in srgb, var(--bg-secondary) 88%, transparent);
 }
 
 .skills__reveal {
