@@ -95,6 +95,7 @@
   .hero__content {
     display: flex;
     flex-direction: column-reverse;
+    align-items: stretch;
     row-gap: var(--space-4);
   }
 
