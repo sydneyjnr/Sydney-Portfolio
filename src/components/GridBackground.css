@@ -1,18 +1,13 @@
 .grid-bg {
-  --grid-cell: 40px;
+  --grid-cell: 56px;
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  /* Large viewport height: the layer won't resize as a phone's URL bar collapses. */
-  height: 100vh;
-  height: 100lvh;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
   pointer-events: none;
-  /* Own compositor layer, so scrolling the page never repaints the grid. */
-  transform: translateZ(0);
+  /* The whole layer dissolves into the page, so the hero has no bottom edge. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 96%);
+  mask-image: linear-gradient(to bottom, #000 45%, transparent 96%);
 }
 
 .grid-bg__lines,
@@ -29,13 +24,13 @@
     linear-gradient(var(--border-gold) 1px, transparent 1px),
     linear-gradient(90deg, var(--border-gold) 1px, transparent 1px);
   background-size: var(--grid-cell) var(--grid-cell);
-  /* --border-gold is gold at 30%, so this gives lines of about 12% gold. */
-  opacity: 0.4;
+  /* --border-gold is gold at 30%, so this gives lines of about 15% gold. */
+  opacity: 0.5;
 }
 
 @media (max-width: 768px) {
   .grid-bg {
-    --grid-cell: 32px;
+    --grid-cell: 40px;
   }
 }
 

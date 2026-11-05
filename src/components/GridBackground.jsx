@@ -7,9 +7,10 @@ const MAX_LIT_CELLS = 40;
 const MAX_DPR = 2;
 
 /**
- * Site-wide gold grid. The lines are plain CSS; the canvas only paints the
- * cells lit by the pointer, and its animation loop runs only while a cell is
- * fading, so an idle page does no per-frame work.
+ * The gold grid behind the hero. It fills its parent, which also supplies the
+ * pointer events. The lines are plain CSS; the canvas only paints the cells lit
+ * by the pointer, and its animation loop runs only while a cell is fading, so an
+ * idle page does no per-frame work.
  */
 export default function GridBackground() {
   const layerRef = useRef(null);
@@ -17,6 +18,7 @@ export default function GridBackground() {
 
   useEffect(() => {
     const layer = layerRef.current;
+    const host = layer.parentElement;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     if (!ctx) return undefined;
@@ -122,7 +124,11 @@ export default function GridBackground() {
       cellSize = parseFloat(styles.getPropertyValue('--grid-cell')) || cellSize;
     };
 
-    const handlePointer = (event) => lightCellAt(event.clientX, event.clientY);
+    // The grid scrolls with the page, so measure from where it is right now.
+    const handlePointer = (event) => {
+      const { left, top } = canvas.getBoundingClientRect();
+      lightCellAt(event.clientX - left, event.clientY - top);
+    };
 
     // A finger leaves no hover state behind, so its cell fades as soon as it lifts.
     const handlePointerUp = (event) => {
@@ -137,24 +143,24 @@ export default function GridBackground() {
       if (enabled) return;
       enabled = true;
       resizeObserver.observe(canvas);
-      window.addEventListener('pointermove', handlePointer, pointerOptions);
-      window.addEventListener('pointerdown', handlePointer, pointerOptions);
-      window.addEventListener('pointerup', handlePointerUp, pointerOptions);
-      window.addEventListener('pointercancel', releaseCell, pointerOptions);
+      host.addEventListener('pointermove', handlePointer, pointerOptions);
+      host.addEventListener('pointerdown', handlePointer, pointerOptions);
+      host.addEventListener('pointerup', handlePointerUp, pointerOptions);
+      host.addEventListener('pointercancel', releaseCell, pointerOptions);
+      host.addEventListener('pointerleave', releaseCell, pointerOptions);
       window.addEventListener('blur', releaseCell);
-      document.documentElement.addEventListener('pointerleave', releaseCell, pointerOptions);
     };
 
     const disable = () => {
       if (!enabled) return;
       enabled = false;
       resizeObserver.disconnect();
-      window.removeEventListener('pointermove', handlePointer);
-      window.removeEventListener('pointerdown', handlePointer);
-      window.removeEventListener('pointerup', handlePointerUp);
-      window.removeEventListener('pointercancel', releaseCell);
+      host.removeEventListener('pointermove', handlePointer);
+      host.removeEventListener('pointerdown', handlePointer);
+      host.removeEventListener('pointerup', handlePointerUp);
+      host.removeEventListener('pointercancel', releaseCell);
+      host.removeEventListener('pointerleave', releaseCell);
       window.removeEventListener('blur', releaseCell);
-      document.documentElement.removeEventListener('pointerleave', releaseCell);
 
       if (frameId !== null) cancelAnimationFrame(frameId);
       frameId = null;
