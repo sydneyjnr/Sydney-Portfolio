@@ -27,7 +27,7 @@
 }
 
 body {
-  background: var(--bg-primary);
+  /* The base black is on :root; a body background would cover .grid-bg. */
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
