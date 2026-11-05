@@ -12,7 +12,6 @@
   /* Tints of the text colours: quiet labels, hairlines, and form controls. */
   --text-muted: rgba(189, 189, 189, 0.72);
   --rule: rgba(248, 248, 248, 0.1);
-  --rule-strong: rgba(248, 248, 248, 0.1);
   --rule-control: rgba(248, 248, 248, 0.38);
 
   /* Type */
@@ -142,6 +141,7 @@ img {
 
 /* Every section shares this grid, so titles and content line up down the page. */
 .section {
+  position: relative;
   display: grid;
   grid-template-columns: var(--index-cols);
   column-gap: var(--col-gap);
@@ -149,20 +149,16 @@ img {
   padding-inline: var(--page-inset);
 }
 
-.section + .section {
-  border-top: 1px solid var(--rule);
-}
-
-/* The two-column rhythm every section hangs from. */
-.index-row {
-  display: grid;
-  grid-template-columns: var(--col-margin) minmax(0, 1fr);
-  column-gap: var(--col-gap);
-}
-
-.index-content {
-  grid-column: 2;
-  min-width: 0;
+/* Dividers stop at the page margins, on the same edges as the content. */
+.section + .section::before,
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--page-inset);
+  right: var(--page-inset);
+  height: 1px;
+  background: var(--rule);
 }
 
 
@@ -207,15 +203,6 @@ img {
     row-gap: var(--space-8);
     /* Keeps section titles clear of the fixed navbar after a nav link jump. */
     scroll-margin-top: 44px;
-  }
-
-  .index-row {
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: var(--space-4);
-  }
-
-  .index-content {
-    grid-column: 1;
   }
 }
 
