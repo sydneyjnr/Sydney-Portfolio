@@ -140,7 +140,11 @@ img {
   display: block;
 }
 
+/* Every section shares this grid, so titles and content line up down the page. */
 .section {
+  display: grid;
+  grid-template-columns: var(--index-cols);
+  column-gap: var(--col-gap);
   padding-block: var(--space-section);
   padding-inline: var(--page-inset);
 }
@@ -161,9 +165,6 @@ img {
   min-width: 0;
 }
 
-.section-head {
-  margin-bottom: var(--space-12);
-}
 
 .section-index {
   display: block;
@@ -202,6 +203,8 @@ img {
 
 @media (max-width: 960px) {
   .section {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--space-8);
     /* Keeps section titles clear of the fixed navbar after a nav link jump. */
     scroll-margin-top: 44px;
   }

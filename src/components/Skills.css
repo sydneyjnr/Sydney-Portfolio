@@ -1,12 +1,8 @@
 .skills__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-12) var(--col-gap);
-}
-
-.skill-group {
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--rule-strong);
+  gap: var(--space-8) var(--col-gap);
+  min-width: 0;
 }
 
 .skill-group__title {
@@ -15,26 +11,23 @@
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: 0;
-  color: var(--gold-soft);
-  margin-bottom: var(--space-8);
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
 }
 
 .skill-group__list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  font-size: var(--step-lead);
-  line-height: 1.4;
-  letter-spacing: -0.01em;
+  gap: var(--space-1);
   color: var(--text-primary);
 }
 
 /* Stacked, each group becomes a row with its label in a margin of its own. */
-@media (max-width: 1023px) {
+@media (max-width: 1100px) {
   .skills__grid {
     grid-template-columns: minmax(0, 1fr);
-    row-gap: var(--space-8);
+    row-gap: var(--space-6);
   }
 
   .skill-group {
@@ -46,9 +39,5 @@
   .skill-group__title {
     margin-bottom: 0;
     padding-top: 0.35em;
-  }
-
-  .skill-group__list {
-    font-size: var(--step-body);
   }
 }
