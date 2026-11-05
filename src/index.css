@@ -117,6 +117,8 @@ img {
 @media (max-width: 768px) {
   .section {
     padding: 60px 16px;
+    /* Keeps section titles clear of the fixed navbar after a nav link jump. */
+    scroll-margin-top: 44px;
   }
 
   .section-title {
