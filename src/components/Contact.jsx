@@ -56,15 +56,14 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section contact">
-      <div className="contact__reveal">
-        <h2 className="section-title">Get In Touch</h2>
-        <p className="section-subtitle">
-          Have a project in mind? Let's build something great together.
-        </p>
-      </div>
-
       <div className="contact__content">
-        <div className="contact__info">
+        <div className="contact__info" data-reveal>
+          <span className="section-index" aria-hidden="true">04</span>
+          <h2 className="section-title">Get In Touch</h2>
+          <p className="section-subtitle">
+            Have a project in mind? Let's build something great together.
+          </p>
+
           <p className="contact__text">
             I'm always interested in hearing about new opportunities, interesting
             projects, or just connecting with fellow developers.
@@ -104,6 +103,7 @@ export default function Contact() {
 
         <form
   className="contact__form"
+  data-reveal
   onSubmit={handleSubmit}
   onChange={clearResult}
 >
