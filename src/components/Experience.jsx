@@ -13,18 +13,6 @@ const EXPERIENCE = [
     'Strengthening problem-solving, communication, collaboration, and professional skills through mentorship and practical learning.'
   ],
 },
-  {
-    role: "Junior Frontend Developer",
-    company: "ROU Technology {Nigeria}",
-    period: "Jan 2025 - Present",
-    description:
-      "Building responsive and interactive web applications while enhancing user experiences using modern web technologies.",
-    achievements: [
-      "Developed responsive and interactive web applications",
-      "Applied modern frontend technologies to improve user experiences",
-      "Collaborated with others to build and improve web projects",
-    ],
-  },
 ];
 
 const prefersReduced = window.matchMedia(
