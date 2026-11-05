@@ -24,30 +24,29 @@ const SKILLS = [
 export default function Skills() {
   return (
     <section id="skills" className="section skills">
-      <div className="skills__reveal">
-        <h2 className="section-title">Skills & Technologies</h2>
-        <p className="section-subtitle">
-          Technologies I work with daily to build modern, scalable applications.
-        </p>
+      <div className="section-head index-row" data-reveal>
+        <span className="section-index" aria-hidden="true">01</span>
+        <div>
+          <h2 className="section-title">Skills & Technologies</h2>
+          <p className="section-subtitle">
+            Technologies I work with daily to build modern, scalable applications.
+          </p>
+        </div>
       </div>
 
-      <div className="skills__grid">
-        {SKILLS.map((group, i) => (
-          <div
-            key={group.category}
-            className="skill-card"
-            style={{ animationDelay: `${i * 0.1}s` }}
-          >
-            <h3 className="skill-card__title">{group.category}</h3>
-            <ul className="skill-card__list">
-              {group.items.map((skill) => (
-                <li key={skill} className="skill-card__item">
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <div className="index-row">
+        <div className="index-content skills__grid" data-reveal>
+          {SKILLS.map((group) => (
+            <div key={group.category} className="skill-group">
+              <h3 className="skill-group__title">{group.category}</h3>
+              <ul className="skill-group__list">
+                {group.items.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
