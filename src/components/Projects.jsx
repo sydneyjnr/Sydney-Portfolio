@@ -1,9 +1,9 @@
 const PROJECTS = [
   {
-    title: 'Blacc Farms',
-    description: 'Collaborated with Meshack Amadi on Blacc Farms, contributing to its responsive web development and user experience.',
-    tags: ['React', 'Tailwind CSS'],
-    links: { live: 'https://meshackamadi.github.io/blacc-farms/' },
+    title: 'Sydney – AI Companion',
+    description: 'An AI chat companion with live web search. It understands misspelled questions, cites sources, and keeps chat history per user. Built with Next.js, Groq (Qwen), Tavily search, Google sign-in and a MySQL database, deployed on Vercel.',
+    tags: ['Next.js', 'TypeScript', 'Prisma', 'MySQL', 'Auth.js', 'Groq', 'Tavily'],
+    links: { github: 'https://github.com/sydneyjnr/sydney', live: 'https://sydney-six.vercel.app/' },
   },
   {
     title: 'US Housing permit analysis (1980–2010)',
