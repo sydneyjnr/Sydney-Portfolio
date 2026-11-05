@@ -166,9 +166,19 @@ export default function GridBackground() {
       ctx.restore();
     };
 
-    enable();
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const syncMotionPreference = () => {
+      if (reducedMotion.matches) disable();
+      else enable();
+    };
 
-    return disable;
+    syncMotionPreference();
+    reducedMotion.addEventListener('change', syncMotionPreference);
+
+    return () => {
+      reducedMotion.removeEventListener('change', syncMotionPreference);
+      disable();
+    };
   }, []);
 
   return (

@@ -38,3 +38,9 @@
     --grid-cell: 32px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-bg__cells {
+    display: none;
+  }
+}
