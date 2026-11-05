@@ -3,9 +3,18 @@ import { useState, useEffect } from 'react';
 export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
 
+  // Only shown when heading back up or at the page end, so it never sits over
+  // the text someone is reading on the way down.
   useEffect(() => {
+    let lastY = window.scrollY;
+
     const handleScroll = () => {
-      setVisible(window.scrollY > 400);
+      const y = window.scrollY;
+      const page = document.documentElement;
+      const atEnd = y + window.innerHeight >= page.scrollHeight - 80;
+
+      setVisible(y > 400 && (y < lastY || atEnd));
+      lastY = y;
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
