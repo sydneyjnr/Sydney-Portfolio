@@ -1,13 +1,13 @@
 .scroll-to-top {
   position: fixed;
-  bottom: var(--space-6);
-  right: var(--space-6);
-  width: 44px;
-  height: 44px;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius);
   background: var(--bg-primary);
-  border: 1px solid var(--rule-strong);
-  color: var(--text-primary);
+  border: 1px solid var(--rule);
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,6 +28,6 @@
 }
 
 .scroll-to-top:hover {
-  border-color: var(--gold-rich);
-  color: var(--gold-rich);
+  border-color: var(--rule-control);
+  color: var(--text-primary);
 }
