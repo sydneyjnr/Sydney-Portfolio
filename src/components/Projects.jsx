@@ -6,6 +6,12 @@ const PROJECTS = [
     links: { github: 'https://github.com/sydneyjnr/sydney', live: 'https://sydney-six.vercel.app/' },
   },
   {
+    title: 'Git Visualizer',
+    description: 'An interactive guide that shows where each Git command moves your changes, from your working files to staging, commits, the stash and the remote. Tap any command to see what it does.',
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    links: { live: 'https://sydney-s-git-next-app-practice.vercel.app/' },
+  },
+  {
     title: 'US Housing permit analysis (1980–2010)',
     description: 'Explored U.S. housing trends from 1980–2010 through county-level and state-level visualizations, analyzing the housing boom, 2009 collapse, and early recovery, with a deep dive into Texas.',
     tags: ['Python', 'Polar', 'Lets-Plot', 'Marimo'],
