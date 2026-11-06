@@ -75,7 +75,7 @@
 }
 
 .hero__photo {
-  width: clamp(12rem, 20vw, 17.5rem);
+  width: clamp(14rem, 23vw, 20.625rem);
   aspect-ratio: 1;
   object-fit: cover;
   object-position: center 12%;
@@ -99,6 +99,7 @@
 
   .hero__photo {
     width: 7rem;
+    margin-inline: auto;
   }
 
   .hero__name {
