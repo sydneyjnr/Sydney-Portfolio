@@ -6,10 +6,22 @@ const PROJECTS = [
     links: { live: 'https://sydney-six.vercel.app/' },
   },
   {
+    title: 'Expense Tracker',
+    description: 'A personal finance app for recording income and expenses, setting monthly budgets by category, and reviewing spending trends on a monthly dashboard, with email-verified accounts and currency preferences. Built with the DataThink intern team.',
+    tags: ['Next.js', 'React', 'TypeScript', 'Chakra UI', 'Recharts', 'Prisma', 'MariaDB', 'NextAuth', 'Vitest'],
+    links: {
+      live: 'https://expense-tracker-ashy-phi-40.vercel.app/',
+      github: 'https://github.com/femilabi/expense-tracker',
+    },
+  },
+  {
     title: 'Git Visualizer',
     description: 'An interactive guide that shows where each Git command moves your changes, from your working files to staging, commits, the stash and the remote. Tap any command to see what it does.',
     tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-    links: { live: 'https://sydney-s-git-next-app-practice.vercel.app/' },
+    links: {
+      live: 'https://sydney-s-git-next-app-practice.vercel.app/',
+      github: 'https://github.com/sydneyjnr/Sydney-s-Git-Next-App-Practice',
+    },
   },
   {
     title: 'US Housing permit analysis (1980–2010)',
